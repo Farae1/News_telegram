@@ -3,3 +3,4 @@
 /workspace.xml
 #ignora o .venv
 .venv/
+.idea/
