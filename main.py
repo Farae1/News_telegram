@@ -36,7 +36,7 @@ for article in list_articles:
     ]
     awnser = client.chat.completions.create(
         messages=messages_package,
-        model="llama3-8b-8192"
+        model="llama-3.1-8b-instant"
     )
     resume_awnser = awnser.choices[0].message.content
     article["resume"] = resume_awnser
