@@ -2,6 +2,7 @@
 /shelf/
 /workspace.xml
 .env
+inscritos.db
 #ignora o .venv
 .venv/
 .idea/
