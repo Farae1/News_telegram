@@ -25,7 +25,7 @@ O projeto está em produção, com o deploy realizado em um servidor Linux na pl
 - **Linguagem:** Python 3
 - **Bot Framework:** `python-telegram-bot`
 - **Inteligência Artificial:** API do Groq
-- **Web Scraping:** `newspaper3k` e `feedparser`
+- **Web Scraping:** `newspaper4k` e `feedparser`
 - **Banco de Dados:** SQLite
 - **Hospedagem:** Alwaysdata (Servidor Linux)
 
@@ -40,8 +40,8 @@ O projeto está em produção, com o deploy realizado em um servidor Linux na pl
 
 1. Clone o repositório:
 
-    git clone https://github.com/seu-usuario/seu-repositorio-aqui.git
-    cd seu-repositorio-aqui
+    git clone https://github.com/Farae1/News_telegram.git
+    cd News_telegram
 
 2. Crie e ative o ambiente virtual:
 
