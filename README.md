@@ -24,7 +24,7 @@ O projeto está em produção, com o deploy realizado em um servidor Linux na pl
 
 - **Linguagem:** Python 3
 - **Bot Framework:** `python-telegram-bot`
-- **Inteligência Artificial:** API do Groq
+- **Inteligência Artificial:** llama-3.1-8b-instant (via API do Groq)
 - **Web Scraping:** `newspaper4k` e `feedparser`
 - **Banco de Dados:** SQLite
 - **Hospedagem:** Alwaysdata (Servidor Linux)
