@@ -24,10 +24,14 @@ def iniciar_banco():
 
     conexao.commit()
     conexao.close()
+
+
 def remover_inscrito(user_id):
     conexao = sqlite3.connect("inscritos.db")
     cursor = conexao.cursor()
-    cursor.execute("DELETE FROM inscritos WHERE id = ?", (user_id,))
+
+    cursor.execute("DELETE FROM usuarios WHERE id_usuario = ?", (user_id,))
+
     conexao.commit()
     conexao.close()
 
