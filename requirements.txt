@@ -1,0 +1,6 @@
+python-telegram-bot[job-queue]
+newspaper4k
+googlenewsdecoder
+groq
+feedparser
+python-dotenv
