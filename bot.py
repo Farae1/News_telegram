@@ -24,7 +24,12 @@ def iniciar_banco():
 
     conexao.commit()
     conexao.close()
-
+def remover_inscrito(user_id):
+    conexao = sqlite3.connect("inscritos.db")
+    cursor = conexao.cursor()
+    cursor.execute("DELETE FROM inscritos WHERE id = ?", (user_id,))
+    conexao.commit()
+    conexao.close()
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     id_cliente = update.message.chat_id
@@ -37,8 +42,19 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     conexao.commit()
     conexao.close()
 
-    await update.message.reply_text("Inscrição confirmada! Você receberá nosso boletim de notícias aqui. 🚀")
+    await update.message.reply_text("Inscrição confirmada! Você receberá nosso boletim de notícias aqui. Se não quiser mais, só mandar um /stop")
 
+
+async def stop(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+
+    remover_inscrito(user_id)
+
+    await update.message.reply_text(
+        "Sua inscrição foi cancelada com sucesso. "
+        "Você não receberá mais os resumos diários. "
+        "Se quiser voltar, é só mandar um /start a qualquer momento!"
+    )
 
 def fatiar_mensagem(texto, limite=4000):
     pedacos = []
@@ -85,6 +101,7 @@ if __name__ == '__main__':
     app = ApplicationBuilder().token(token_telegram).build()
 
     app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler("stop", stop))
 
     # ---- CONFIGURAÇÃO DO RELÓGIO ----
     horario_alvo = datetime.time(hour=20, minute=0, second=0, tzinfo=ZoneInfo("America/Sao_Paulo"))
